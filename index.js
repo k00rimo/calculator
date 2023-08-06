@@ -119,8 +119,11 @@ document.querySelector(".evaluate").addEventListener('click', function() {
 
 //polarity
 document.querySelector(".polarity").addEventListener('click', function(){
+    if (typeof(currNum) == 'string'){
+        currNum = parseFloat(currNum.replace(',','.'));
+    }
     currNum *= -1;
-    document.querySelector(".result.current").innerHTML = currNum;
+    document.querySelector(".result.current").innerHTML = currNum.toString().replace('.',',');
 });
 
 //percentage
